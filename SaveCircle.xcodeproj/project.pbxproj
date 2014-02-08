@@ -26,6 +26,9 @@
 		1F2049CA18A6CD71002CB808 /* SaveCircleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2049C918A6CD71002CB808 /* SaveCircleTests.m */; };
 		1F2049D618A6D7BC002CB808 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2049D518A6D7BC002CB808 /* Event.m */; };
 		1F2049DA18A6E187002CB808 /* AddSavingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2049D918A6E187002CB808 /* AddSavingViewController.m */; };
+		61B27D2C18A6EA7700AFB883 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B27D2B18A6EA7700AFB883 /* User.m */; };
+		61B27D2E18A6F32A00AFB883 /* venmo-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 61B27D2D18A6F32A00AFB883 /* venmo-logo.gif */; };
+		61B27D3118A6F5CB00AFB883 /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B27D3018A6F5CB00AFB883 /* Goal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,11 @@
 		1F2049D518A6D7BC002CB808 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		1F2049D818A6E187002CB808 /* AddSavingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSavingViewController.h; sourceTree = "<group>"; };
 		1F2049D918A6E187002CB808 /* AddSavingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSavingViewController.m; sourceTree = "<group>"; };
+		61B27D2A18A6EA7700AFB883 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		61B27D2B18A6EA7700AFB883 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		61B27D2D18A6F32A00AFB883 /* venmo-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "venmo-logo.gif"; sourceTree = "<group>"; };
+		61B27D2F18A6F5CB00AFB883 /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
+		61B27D3018A6F5CB00AFB883 /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +153,7 @@
 			children = (
 				1F17785A18A6FBDB00672F61 /* heart.png */,
 				1F17785818A6F84D00672F61 /* daniel.jpg */,
+				61B27D2D18A6F32A00AFB883 /* venmo-logo.gif */,
 				1F2049A318A6CD71002CB808 /* SaveCircle-Info.plist */,
 				1F2049A418A6CD71002CB808 /* InfoPlist.strings */,
 				1F2049A718A6CD71002CB808 /* main.m */,
@@ -176,6 +185,10 @@
 			children = (
 				1F2049D418A6D7BC002CB808 /* Event.h */,
 				1F2049D518A6D7BC002CB808 /* Event.m */,
+				61B27D2A18A6EA7700AFB883 /* User.h */,
+				61B27D2B18A6EA7700AFB883 /* User.m */,
+				61B27D2F18A6F5CB00AFB883 /* Goal.h */,
+				61B27D3018A6F5CB00AFB883 /* Goal.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -266,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F2049B718A6CD71002CB808 /* Images.xcassets in Resources */,
+				61B27D2E18A6F32A00AFB883 /* venmo-logo.gif in Resources */,
 				1F2049A618A6CD71002CB808 /* InfoPlist.strings in Resources */,
 				1F17785B18A6FBDB00672F61 /* heart.png in Resources */,
 				1F17785918A6F84D00672F61 /* daniel.jpg in Resources */,
@@ -289,8 +303,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F2049B518A6CD71002CB808 /* SecondViewController.m in Sources */,
+				61B27D2C18A6EA7700AFB883 /* User.m in Sources */,
 				1F2049AC18A6CD71002CB808 /* AppDelegate.m in Sources */,
 				1F2049D618A6D7BC002CB808 /* Event.m in Sources */,
+				61B27D3118A6F5CB00AFB883 /* Goal.m in Sources */,
 				1F2049B218A6CD71002CB808 /* FeedViewController.m in Sources */,
 				1F2049DA18A6E187002CB808 /* AddSavingViewController.m in Sources */,
 				1F2049A818A6CD71002CB808 /* main.m in Sources */,
