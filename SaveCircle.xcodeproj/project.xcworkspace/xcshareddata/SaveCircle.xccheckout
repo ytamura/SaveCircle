@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8AF1DE4D-785D-4BC6-91E7-3E5E5004D75E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SaveCircle</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>818A771F-29EF-4EEA-8A7E-737BF8855513</key>
+		<string>ssh://github.com/ytamura/SaveCircle.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SaveCircle.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>818A771F-29EF-4EEA-8A7E-737BF8855513</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/ytamura/SaveCircle.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>818A771F-29EF-4EEA-8A7E-737BF8855513</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>818A771F-29EF-4EEA-8A7E-737BF8855513</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SaveCircle</string>
+		</dict>
+	</array>
+</dict>
+</plist>
