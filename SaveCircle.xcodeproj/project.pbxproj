@@ -37,6 +37,8 @@
 		1F77AE3E18A7718C0040C5F2 /* profilegraph.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F77AE3D18A7718C0040C5F2 /* profilegraph.png */; };
 		1F77AE4118A780180040C5F2 /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F77AE4018A780180040C5F2 /* DataController.m */; };
 		1F77AE4318A7818A0040C5F2 /* profilegoals.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F77AE4218A7818A0040C5F2 /* profilegoals.png */; };
+		1F77AE4618A80EA90040C5F2 /* TeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F77AE4518A80EA90040C5F2 /* TeamViewController.m */; };
+		1F77AE4818A8113C0040C5F2 /* teampie.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F77AE4718A8113C0040C5F2 /* teampie.png */; };
 		61326B3C18A7001E00E150ED /* paypal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61326B3B18A7001E00E150ED /* paypal.jpg */; };
 		61326B3F18A72C2200E150ED /* EncouragementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61326B3E18A72C2200E150ED /* EncouragementViewController.m */; };
 		61B27D2C18A6EA7700AFB883 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B27D2B18A6EA7700AFB883 /* User.m */; };
@@ -96,6 +98,9 @@
 		1F77AE3F18A780180040C5F2 /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataController.h; sourceTree = "<group>"; };
 		1F77AE4018A780180040C5F2 /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataController.m; sourceTree = "<group>"; };
 		1F77AE4218A7818A0040C5F2 /* profilegoals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profilegoals.png; sourceTree = "<group>"; };
+		1F77AE4418A80EA90040C5F2 /* TeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamViewController.h; sourceTree = "<group>"; };
+		1F77AE4518A80EA90040C5F2 /* TeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamViewController.m; sourceTree = "<group>"; };
+		1F77AE4718A8113C0040C5F2 /* teampie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teampie.png; sourceTree = "<group>"; };
 		61326B3B18A7001E00E150ED /* paypal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = paypal.jpg; sourceTree = "<group>"; };
 		61326B3D18A72C2200E150ED /* EncouragementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncouragementViewController.h; sourceTree = "<group>"; };
 		61326B3E18A72C2200E150ED /* EncouragementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncouragementViewController.m; sourceTree = "<group>"; };
@@ -177,6 +182,7 @@
 		1F2049A218A6CD71002CB808 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F77AE4718A8113C0040C5F2 /* teampie.png */,
 				1F77AE4218A7818A0040C5F2 /* profilegoals.png */,
 				1F77AE3D18A7718C0040C5F2 /* profilegraph.png */,
 				1F77AE3818A75D370040C5F2 /* triangle.png */,
@@ -243,6 +249,8 @@
 				61326B3E18A72C2200E150ED /* EncouragementViewController.m */,
 				1F77AE3A18A770A00040C5F2 /* ProfileViewController.h */,
 				1F77AE3B18A770A00040C5F2 /* ProfileViewController.m */,
+				1F77AE4418A80EA90040C5F2 /* TeamViewController.h */,
+				1F77AE4518A80EA90040C5F2 /* TeamViewController.m */,
 				1F77AE3F18A780180040C5F2 /* DataController.h */,
 				1F77AE4018A780180040C5F2 /* DataController.m */,
 			);
@@ -328,6 +336,7 @@
 				1F77AE3218A7177C0040C5F2 /* feed@2x.png in Resources */,
 				1F2049B718A6CD71002CB808 /* Images.xcassets in Resources */,
 				1F77AE3E18A7718C0040C5F2 /* profilegraph.png in Resources */,
+				1F77AE4818A8113C0040C5F2 /* teampie.png in Resources */,
 				1F77AE3018A716E10040C5F2 /* wishlist@2x.png in Resources */,
 				61B27D2E18A6F32A00AFB883 /* venmo-logo.gif in Resources */,
 				1F2049A618A6CD71002CB808 /* InfoPlist.strings in Resources */,
@@ -360,6 +369,7 @@
 			files = (
 				61326B3F18A72C2200E150ED /* EncouragementViewController.m in Sources */,
 				1F2049B518A6CD71002CB808 /* WishListViewController.m in Sources */,
+				1F77AE4618A80EA90040C5F2 /* TeamViewController.m in Sources */,
 				61B27D2C18A6EA7700AFB883 /* User.m in Sources */,
 				1F2049AC18A6CD71002CB808 /* AppDelegate.m in Sources */,
 				1F2049D618A6D7BC002CB808 /* Event.m in Sources */,
