@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  LoanViewController.h
 //  SaveCircle
 //
 //  Created by Yuriko Tamura on 2014/02/08.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface LoanViewController : UIViewController
 
 @end

@@ -114,8 +114,8 @@
 }
 
 - (void)updateTotals {
-    [self.my_total_button setTitle:[NSString stringWithFormat:@"$%i",self.my_total] forState:UIControlStateNormal];
-    [self.team_total_button setTitle:[NSString stringWithFormat:@"$%i",self.team_total] forState:UIControlStateNormal];
+    [self.my_total_button setTitle:[NSString stringWithFormat:@"$%li",(long)self.my_total] forState:UIControlStateNormal];
+    [self.team_total_button setTitle:[NSString stringWithFormat:@"$%li",(long)self.team_total] forState:UIControlStateNormal];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -160,6 +160,7 @@
     return 1;
 }
 
+//can like but not unlike
 - (IBAction)tap_like:(id)sender {
     UIButton* heart_button = (UIButton*)sender;
     [heart_button setBackgroundImage:[UIImage imageNamed:@"heart-liked.png"] forState:UIControlStateNormal];
