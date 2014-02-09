@@ -8,6 +8,7 @@
 
 #import "FeedViewController.h"
 #import "AddSavingViewController.h"
+#import "EncouragementViewController.h"
 #import "Event.h"
 
 @interface FeedViewController ()
@@ -102,6 +103,8 @@
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [self.feedtable insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     };
+  
+  
     self.last_event_count = self.events.count;
 }
 
@@ -171,7 +174,9 @@
     
     UILabel* agoLabel = (UILabel*)[cell viewWithTag:103];
     [agoLabel setText:e.how_long_ago];
-    
+  
+  [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+  
     return cell;
 }
 
@@ -193,6 +198,13 @@
         AddSavingViewController* addViewController = (AddSavingViewController*)[navForEntry topViewController];
         [addViewController setEvents:self.events];
     }
+  
+  if ([[segue identifier] isEqualToString:@"SendEncouragement"]) {
+    NSIndexPath *selectedIndexPath = [self.feedtable indexPathForSelectedRow];
+    Event *event = self.events[selectedIndexPath.row];
+    EncouragementViewController* encouragementViewController = (EncouragementViewController *)[segue destinationViewController];
+    [encouragementViewController setEvent:event];
+  }
 }
 
 
