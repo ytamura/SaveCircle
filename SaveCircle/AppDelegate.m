@@ -112,7 +112,7 @@
     [self.events addObject:event7];
     
     Event *event8 = [Event new];
-    event8.amount_cents = 3000;
+    event8.amount_cents = 6000;
     event8.event_name = @"saved";
     event8.created_at = [NSDate date];
     event8.user_name = @"Steve";

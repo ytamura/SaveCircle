@@ -7,6 +7,9 @@
 //
 
 #import "LoanViewController.h"
+#import "Event.h"
+#import "AppDelegate.h"
+#import "DataController.h"
 
 @interface LoanViewController ()
 
@@ -27,6 +30,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self.withdraw_button.layer setCornerRadius:5];
+    [self.request_button.layer setCornerRadius:5];
+    
+    
+    float myTotal = [DataController myTotal];
+    
+    float availableToBorrow = myTotal * 0.4;
+    
+    [self.your_savings setText:[NSString stringWithFormat:@"%.02f",myTotal]];
+    [self.borrowable setText:[NSString stringWithFormat:@"%.02f",availableToBorrow]];
+    [self.total_available setText:[NSString stringWithFormat:@"%.02f",(myTotal+availableToBorrow)]];
+    
 }
 
 - (void)didReceiveMemoryWarning

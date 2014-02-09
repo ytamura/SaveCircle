@@ -10,6 +10,7 @@
 #import "AddSavingViewController.h"
 #import "EncouragementViewController.h"
 #import "Event.h"
+#import "DataController.h"
 #import "AppDelegate.h"
 
 @interface FeedViewController ()
@@ -60,16 +61,8 @@
 }
 
 - (void)updateTotals {
-    NSInteger myTotal = 0;
-    NSInteger groupTotal = 0;
-    for (Event* event in SharedAppDelegate.events) {
-        if ([event.event_name isEqualToString:@"saved"]) {
-            if ([event.user_name isEqualToString:@"Steve"]) {
-                myTotal += event.amount_cents/100;
-            }
-            groupTotal += event.amount_cents/100;
-        }
-    }
+    NSInteger myTotal = [DataController myTotalInteger];
+    NSInteger groupTotal = [DataController myGroupTotalInteger];
     
     [self.my_total_button setTitle:[NSString stringWithFormat:@"$%li",(long)myTotal] forState:UIControlStateNormal];
     [self.team_total_button setTitle:[NSString stringWithFormat:@"$%li",(long)groupTotal] forState:UIControlStateNormal];
@@ -96,6 +89,7 @@
     UILabel* avatar = (UILabel*)[cell viewWithTag:101];
     if ([e.image_name length] > 0) {
         [avatar setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:e.image_name]]];
+        [avatar setText:@""];
     } else {
         [avatar setBackgroundColor:e.user_color];
         [avatar setText:[[e.user_name capitalizedString] substringToIndex:1]];
