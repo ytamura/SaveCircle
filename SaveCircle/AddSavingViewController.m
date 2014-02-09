@@ -8,6 +8,7 @@
 
 #import "AddSavingViewController.h"
 #import "Goal.h"
+#import "Event.h"
 
 @interface AddSavingViewController ()
 
@@ -87,6 +88,15 @@ static UIColor *overlayColor;
   NSNumber *savingsAdded = [f numberFromString:self.savings_amount.text];
   
   NSLog(@"Savings added: %@", savingsAdded);
+    
+    Event* newEvent = [Event new];
+    newEvent.user_name = @"Steve";
+    newEvent.amount_cents = savingsAdded.integerValue * 100;
+    newEvent.how_long_ago = @"just now";
+    newEvent.user_color = [UIColor purpleColor];
+    newEvent.event_name = @"saved";
+    
+    [self.events insertObject:newEvent atIndex:0];
   
   [self.parentViewController dismissViewControllerAnimated:YES completion:^{}];
 }
