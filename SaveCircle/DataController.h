@@ -12,4 +12,5 @@
 +(NSInteger)myTotalInteger;
 +(NSInteger)myGroupTotalInteger;
 +(float)myTotal;
++(NSInteger)amount_cents_so_far_in_goal:(NSInteger)goal_id;
 @end

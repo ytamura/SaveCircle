@@ -10,6 +10,7 @@
 #import "Event.h"
 #import "AppDelegate.h"
 #import "DataController.h"
+#import "Goal.h"
 
 @interface LoanViewController ()
 
@@ -31,17 +32,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    //format buttons
     [self.withdraw_button.layer setCornerRadius:5];
     [self.request_button.layer setCornerRadius:5];
-    
-    
-    float myTotal = [DataController myTotal];
-    
-    float availableToBorrow = myTotal * 0.4;
-    
-    [self.your_savings setText:[NSString stringWithFormat:@"%.02f",myTotal]];
-    [self.borrowable setText:[NSString stringWithFormat:@"%.02f",availableToBorrow]];
-    [self.total_available setText:[NSString stringWithFormat:@"%.02f",(myTotal+availableToBorrow)]];
     
     // dismiss keyboard
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -49,6 +42,21 @@
                                    action:@selector(dismissKeyboard)];
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    //fill goal message
+    Goal* emergency = SharedAppDelegate.goals[0];
+    [self.goalMessage setText:[NSString stringWithFormat:@"You've saved $%li towards your %@. But we know unexpected expenses come up.",[DataController amount_cents_so_far_in_goal:0]/100,emergency.name]];
+    
+    //fill funds available
+    float myTotal = [DataController myTotal];
+    
+    float availableToBorrow = myTotal * 0.4;
+    
+    [self.your_savings setText:[NSString stringWithFormat:@"%.02f",myTotal]];
+    [self.borrowable setText:[NSString stringWithFormat:@"%.02f",availableToBorrow]];
+    [self.total_available setText:[NSString stringWithFormat:@"%.02f",(myTotal+availableToBorrow)]];
 }
 
 - (void)dismissKeyboard {
