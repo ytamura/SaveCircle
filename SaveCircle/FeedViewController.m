@@ -10,10 +10,10 @@
 #import "AddSavingViewController.h"
 #import "EncouragementViewController.h"
 #import "Event.h"
+#import "AppDelegate.h"
 
 @interface FeedViewController ()
 
-@property(nonatomic) NSMutableArray *events;
 @property(nonatomic) NSInteger my_total;
 @property(nonatomic) NSInteger team_total;
 @property(nonatomic) NSInteger last_event_count;
@@ -28,84 +28,19 @@
     
     //format button
     [self formatAddButton];
-    
-    self.events = [NSMutableArray new];
-    
-    Event *event = [Event new];
-    event.amount_cents = 4500;
-    event.event_name = @"saved";
-    event.created_at = [NSDate date];
-    event.user_name = @"Maria";
-    event.how_long_ago = @"1 day ago";
-    event.user_color = [UIColor orangeColor];
-
-    [self.events addObject:event];
-
-    Event *event2 = [Event new];
-    event2.amount_cents = 1500;
-    event2.event_name = @"saved";
-    event2.created_at = [NSDate date];
-    event2.user_name = @"Daniel";
-    event2.how_long_ago = @"3 days ago";
-    event2.user_color = [UIColor greenColor];
-    event2.image_name = @"daniel.jpg";
-    
-    [self.events addObject:event2];
-    
-    Event *event3 = [Event new];
-    event3.amount_cents = 500;
-    event3.event_name = @"saved";
-    event3.created_at = [NSDate date];
-    event3.user_name = @"Steve";
-    event3.how_long_ago = @"4 days ago";
-    event3.user_color = [UIColor purpleColor];
-    
-    [self.events addObject:event3];
-    
-    Event *event4 = [Event new];
-    event4.amount_cents = 450000;
-    event4.event_name = @"set a goal of";
-    event4.created_at = [NSDate date];
-    event4.user_name = @"Maria";
-    event4.how_long_ago = @"2 weeks ago";
-    event4.user_color = [UIColor orangeColor];
-    event4.liked = YES;
-    
-    [self.events addObject:event4];
-    
-    Event *event5 = [Event new];
-    event5.amount_cents = 3000;
-    event5.event_name = @"saved";
-    event5.created_at = [NSDate date];
-    event5.user_name = @"Maria";
-    event5.how_long_ago = @"2 weeks ago";
-    event5.user_color = [UIColor orangeColor];
-    
-    [self.events addObject:event5];
-    
-    Event *event6 = [Event new];
-    event6.amount_cents = 2300;
-    event6.event_name = @"saved";
-    event6.created_at = [NSDate date];
-    event6.user_name = @"Daniel";
-    event6.how_long_ago = @"4 weeks ago";
-    event6.user_color = [UIColor greenColor];
-    event6.image_name = @"daniel.jpg";
-    
-    [self.events addObject:event6];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [self updateTotals];
     if (self.last_event_count == 0) {
         [self.feedtable reloadData];
-    } else if (self.last_event_count != self.events.count) {
+    } else if (self.last_event_count != SharedAppDelegate.events.count) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [self.feedtable insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     };
   
   
-    self.last_event_count = self.events.count;
+    self.last_event_count = SharedAppDelegate.events.count;
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,7 +62,7 @@
 - (void)updateTotals {
     NSInteger myTotal = 0;
     NSInteger groupTotal = 0;
-    for (Event* event in self.events) {
+    for (Event* event in SharedAppDelegate.events) {
         if ([event.event_name isEqualToString:@"saved"]) {
             if ([event.user_name isEqualToString:@"Steve"]) {
                 myTotal += event.amount_cents/100;
@@ -141,13 +76,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.events count];
+    return [SharedAppDelegate.events count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell" forIndexPath:indexPath];
     
-    Event* e = [self.events objectAtIndex:indexPath.row];
+    Event* e = [SharedAppDelegate.events objectAtIndex:indexPath.row];
     
     UILabel* feedLabel = (UILabel*)[cell viewWithTag:100];
     float dollars = (float)e.amount_cents / 100;
@@ -196,12 +131,12 @@
     if ([[segue identifier] isEqualToString:@"AddSaving"]) {
         UINavigationController* navForEntry = (UINavigationController*)[segue destinationViewController];
         AddSavingViewController* addViewController = (AddSavingViewController*)[navForEntry topViewController];
-        [addViewController setEvents:self.events];
+        [addViewController setEvents:SharedAppDelegate.events];
     }
   
   if ([[segue identifier] isEqualToString:@"SendEncouragement"]) {
     NSIndexPath *selectedIndexPath = [self.feedtable indexPathForSelectedRow];
-    Event *event = self.events[selectedIndexPath.row];
+    Event *event = SharedAppDelegate.events[selectedIndexPath.row];
     EncouragementViewController* encouragementViewController = (EncouragementViewController *)[segue destinationViewController];
     [encouragementViewController setEvent:event];
   }

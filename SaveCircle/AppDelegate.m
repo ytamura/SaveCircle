@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Goal.h"
+#import "Event.h"
 
 @implementation AppDelegate
 
@@ -17,21 +18,109 @@
     self.goals = NSMutableArray.new;
     Goal *goal1 = [Goal new];
     goal1.goal_amount_cents = 50000;
-    goal1.amount_cents_so_far = 10000;
+    goal1.amount_cents_so_far = 0; //calculate this instead
     goal1.name = @"Emergency Fund";
     
     Goal *goal2 = [Goal new];
     goal2.goal_amount_cents = 70000;
-    goal2.amount_cents_so_far = 5000;
+    goal2.amount_cents_so_far = 0;
     goal2.name = @"Annie's College Fund";
     
     Goal *goal3 = [Goal new];
     goal3.goal_amount_cents = 10000;
-    goal3.amount_cents_so_far = 3000;
+    goal3.amount_cents_so_far = 0;
     goal3.name = @"Mortgage Payment";
     
     
     [self.goals addObjectsFromArray:@[goal1, goal2, goal3]];
+    
+    self.events = [NSMutableArray new];
+    
+    Event *event = [Event new];
+    event.amount_cents = 4500;
+    event.event_name = @"saved";
+    event.created_at = [NSDate date];
+    event.user_name = @"Maria";
+    event.how_long_ago = @"1 day ago";
+    event.user_color = [UIColor orangeColor];
+    
+    [self.events addObject:event];
+    
+    Event *event2 = [Event new];
+    event2.amount_cents = 1500;
+    event2.event_name = @"saved";
+    event2.created_at = [NSDate date];
+    event2.user_name = @"Daniel";
+    event2.how_long_ago = @"3 days ago";
+    event2.user_color = [UIColor greenColor];
+    event2.image_name = @"daniel.jpg";
+    
+    [self.events addObject:event2];
+    
+    Event *event3 = [Event new];
+    event3.amount_cents = 10000;
+    event3.event_name = @"saved";
+    event3.created_at = [NSDate date];
+    event3.user_name = @"Steve";
+    event3.how_long_ago = @"4 days ago";
+    event3.user_color = [UIColor purpleColor];
+    event3.goal_id = 0;
+    
+    [self.events addObject:event3];
+    
+    Event *event4 = [Event new];
+    event4.amount_cents = 450000;
+    event4.event_name = @"set a goal of";
+    event4.created_at = [NSDate date];
+    event4.user_name = @"Maria";
+    event4.how_long_ago = @"2 weeks ago";
+    event4.user_color = [UIColor orangeColor];
+    event4.liked = YES;
+    
+    [self.events addObject:event4];
+    
+    Event *event5 = [Event new];
+    event5.amount_cents = 3000;
+    event5.event_name = @"saved";
+    event5.created_at = [NSDate date];
+    event5.user_name = @"Maria";
+    event5.how_long_ago = @"2 weeks ago";
+    event5.user_color = [UIColor orangeColor];
+    
+    [self.events addObject:event5];
+    
+    Event *event6 = [Event new];
+    event6.amount_cents = 2300;
+    event6.event_name = @"saved";
+    event6.created_at = [NSDate date];
+    event6.user_name = @"Daniel";
+    event6.how_long_ago = @"4 weeks ago";
+    event6.user_color = [UIColor greenColor];
+    event6.image_name = @"daniel.jpg";
+    
+    [self.events addObject:event6];
+    
+    Event *event7 = [Event new];
+    event7.amount_cents = 5000;
+    event7.event_name = @"saved";
+    event7.created_at = [NSDate date];
+    event7.user_name = @"Steve";
+    event7.how_long_ago = @"4 weeks ago";
+    event7.user_color = [UIColor purpleColor];
+    event7.goal_id = 1;
+    
+    [self.events addObject:event7];
+    
+    Event *event8 = [Event new];
+    event8.amount_cents = 3000;
+    event8.event_name = @"saved";
+    event8.created_at = [NSDate date];
+    event8.user_name = @"Steve";
+    event8.how_long_ago = @"4 weeks ago";
+    event8.user_color = [UIColor purpleColor];
+    event8.goal_id = 2;
+    
+    [self.events addObject:event8];
 
     return YES;
 }

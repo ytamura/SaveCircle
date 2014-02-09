@@ -10,5 +10,6 @@
 
 @interface WishListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *wishTable;
+@property (strong, nonatomic) IBOutlet UIButton *add_button;
 
 @end

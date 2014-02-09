@@ -17,6 +17,6 @@
 @property (nonatomic) UIColor* user_color;
 @property (nonatomic) NSString* image_name;
 @property (nonatomic) BOOL liked;
-@property (nonatomic) NSString* goal_name;
+@property (nonatomic) NSInteger goal_id;
 
 @end

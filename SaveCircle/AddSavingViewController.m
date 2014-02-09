@@ -14,6 +14,7 @@
 @interface AddSavingViewController ()
 
 @property(nonatomic) UIView *overlay;
+@property(nonatomic) NSInteger selected_goal;
 
 @end
 
@@ -48,6 +49,9 @@ static UIColor *overlayColor;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //set default
+    self.selected_goal = 0;
   
   // dismiss keyboard
   UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -84,6 +88,7 @@ static UIColor *overlayColor;
     newEvent.how_long_ago = @"just now";
     newEvent.user_color = [UIColor purpleColor];
     newEvent.event_name = @"saved";
+    newEvent.goal_id = self.selected_goal;
     
     [self.events insertObject:newEvent atIndex:0];
   
@@ -164,6 +169,7 @@ static UIColor *overlayColor;
     UILabel *label = [self findCheckmark:cell];
     label.textColor = (i == indexPath.row) ? [UIColor blackColor] : [UIColor whiteColor];
   }
+    self.selected_goal = indexPath.row;
 }
 
 @end
