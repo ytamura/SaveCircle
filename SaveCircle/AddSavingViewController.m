@@ -76,23 +76,56 @@ static UIColor *overlayColor;
 }
 
 - (IBAction)submit:(id)sender {
-  // TODO(iw): validate
-  
-  NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-  [f setNumberStyle:NSNumberFormatterDecimalStyle];
-  NSNumber *savingsAdded = [f numberFromString:self.savings_amount.text];
+    // TODO(iw): validate
+
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber *savingsAdded = [f numberFromString:self.savings_amount.text];
+
+    // Following the hack earlier of a global goals
+    Goal *goal = [SharedAppDelegate.goals objectAtIndex:self.selected_goal];
+    NSString *goalName = goal.name;
+
+    NSString *alertMessage = [NSString stringWithFormat:@"You are saving $%@ for %@. Are you sure?", savingsAdded, goalName];
+    // confirm the amounts
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Confirmation"
+                          message: alertMessage
+                          delegate: self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:@"Cancel", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    Event* newEvent = [Event new];
-    newEvent.user_name = @"Steve";
-    newEvent.amount_cents = savingsAdded.integerValue * 100;
-    newEvent.how_long_ago = @"just now";
-    newEvent.user_color = [UIColor purpleColor];
-    newEvent.event_name = @"saved";
-    newEvent.goal_id = self.selected_goal;
-    
-    [self.events insertObject:newEvent atIndex:0];
-  
-  [self.parentViewController dismissViewControllerAnimated:YES completion:^{}];
+    switch (buttonIndex) {
+        case 0:
+        {
+            // pressed OK
+            NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+            [f setNumberStyle:NSNumberFormatterDecimalStyle];
+            NSNumber *savingsAdded = [f numberFromString:self.savings_amount.text];
+
+            Event* newEvent = [Event new];
+            newEvent.user_name = @"Steve";
+            newEvent.amount_cents = savingsAdded.integerValue * 100;
+            newEvent.how_long_ago = @"just now";
+            newEvent.user_color = [UIColor purpleColor];
+            newEvent.event_name = @"saved";
+            newEvent.goal_id = self.selected_goal;
+
+            [self.events insertObject:newEvent atIndex:0];
+
+            [self.parentViewController dismissViewControllerAnimated:YES completion:^{}];
+        }
+        break;
+        case 1:
+        {
+            // pressed Cancel
+        }
+        break;
+    }
 }
 
 - (void)toggleFundingSource:(UIButton *)button {
