@@ -118,10 +118,13 @@
     return 1;
 }
 
-//can like but not unlike
 - (IBAction)tap_like:(id)sender {
     UIButton* heart_button = (UIButton*)sender;
-    [heart_button setBackgroundImage:[UIImage imageNamed:@"heart-liked.png"] forState:UIControlStateNormal];
+    if ([heart_button.currentImage isEqual:[UIImage imageNamed:@"heart.png"]]) {
+        [heart_button setImage:[UIImage imageNamed:@"heart-liked.png"] forState:UIControlStateNormal];
+    } else {
+        [heart_button setImage:[UIImage imageNamed:@"heart.png"] forState:UIControlStateNormal];
+    }
 }
 
 #pragma Segues
