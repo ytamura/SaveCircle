@@ -128,6 +128,32 @@ static UIColor *overlayColor;
     }
 }
 
+// validation for the savings amount input field
+- (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    // there must be a more elegant way to do this...
+    if ([string length] < 1)    // non-visible characters are okay, eg. delete key to delete chars
+        return YES;
+
+    // don't allow more than 2 numbers after decimal
+    if ([textField.text rangeOfString:@"."].location == [textField.text length] - 3 &&
+        ([textField.text length] == range.location || [textField.text length] - 1 == range.location ||
+         [textField.text length] - 2 == range.location)){
+        return NO;
+    }
+
+    // allow only one period
+    NSString *validCharacters;
+    if  ([textField.text rangeOfString:@"."].location != NSNotFound) {
+        validCharacters = @"0123456789";
+    } else {
+        validCharacters = @"0123456789.";
+    }
+
+    NSCharacterSet *nonNumberSet = [[NSCharacterSet characterSetWithCharactersInString:validCharacters] invertedSet];
+    return ([string stringByTrimmingCharactersInSet:nonNumberSet].length > 0);
+}
+
 - (void)toggleFundingSource:(UIButton *)button {
   UIView *existing = [self.view viewWithTag:201];
   if (existing) {
