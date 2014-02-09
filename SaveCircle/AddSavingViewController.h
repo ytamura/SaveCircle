@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AddSavingViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *venmoButton;
+@property (weak, nonatomic) IBOutlet UITextField *savings_amount;
 
 @end

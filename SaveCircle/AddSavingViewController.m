@@ -12,10 +12,17 @@
 @interface AddSavingViewController ()
 
 @property(nonatomic) NSArray *goals;
+@property(nonatomic) UIView *overlay;
 
 @end
 
+static UIColor *overlayColor;
+
 @implementation AddSavingViewController
+
++ (void)initialize {
+  overlayColor = [UIColor colorWithRed:0.2 green:0.8 blue:0.5 alpha:0.8];
+}
 
 - (IBAction)dismiss:(id)sender {
   [self.parentViewController dismissViewControllerAnimated:YES completion:^{}];
@@ -44,12 +51,61 @@
   goal2.name = @"Bling Bling";
   
   self.goals = @[goal1, goal2];
+  
+  // dismiss keyboard
+  UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                 initWithTarget:self
+                                 action:@selector(dismissKeyboard)];
+  [tap setCancelsTouchesInView:NO];
+  [self.view addGestureRecognizer:tap];
+  
+  
 }
+
+- (void)dismissKeyboard {
+  [self.view endEditing:YES];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)submit:(id)sender {
+  NSLog(@"%@", self.savings_amount);
+  // TODO(iw): validate
+  
+  NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+  [f setNumberStyle:NSNumberFormatterDecimalStyle];
+  NSNumber *savingsAdded = [f numberFromString:self.savings_amount.text];
+  
+  NSLog(@"Savings added: %@", savingsAdded);
+  
+  [self.parentViewController dismissViewControllerAnimated:YES completion:^{}];
+}
+
+- (IBAction)paypalTouchUpInside:(id)sender {
+  UIButton *paypal = (UIButton *)sender;
+  UIView *overlay = [[UIView alloc] initWithFrame:paypal.bounds];
+  overlay.backgroundColor = overlayColor;
+  overlay.tag = 201;
+
+  [paypal addSubview:overlay];
+  
+  CALayer *layer = paypal.layer;
+  layer.borderColor = overlayColor.CGColor;
+  layer.borderWidth = 4;
+}
+
+- (IBAction)venmoTouchUpInside:(id)sender {
+  NSLog(@"VENMO");
+  UIButton *venmoButton = (UIButton *)sender;
+  
+  CALayer *layer = venmoButton.layer;
+  layer.borderColor = [UIColor blackColor].CGColor;
+  layer.borderWidth = 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -71,6 +127,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return [self.goals count];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
 }
 
 @end
