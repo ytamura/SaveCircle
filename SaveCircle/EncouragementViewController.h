@@ -13,5 +13,7 @@
 
 @property Event *event;
 @property (weak, nonatomic) IBOutlet UITextView *encourageTextView;
+@property (strong, nonatomic) IBOutlet UILabel *toEmail;
+@property (strong, nonatomic) IBOutlet UILabel *toAvatar;
 
 @end
