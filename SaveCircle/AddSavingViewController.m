@@ -10,11 +10,13 @@
 #import "AppDelegate.h"
 #import "Goal.h"
 #import "Event.h"
+#import "DataController.h"
 
 @interface AddSavingViewController ()
 
 @property(nonatomic) UIView *overlay;
 @property(nonatomic) NSInteger selected_goal;
+@property(nonatomic) NSString* selected_source;
 
 @end
 
@@ -86,14 +88,14 @@ static UIColor *overlayColor;
     Goal *goal = [SharedAppDelegate.goals objectAtIndex:self.selected_goal];
     NSString *goalName = goal.name;
 
-    NSString *alertMessage = [NSString stringWithFormat:@"You are saving $%@ for %@. Are you sure?", savingsAdded, goalName];
+    NSString *alertMessage = [NSString stringWithFormat:@"You are saving $%@ towards %@ from your %@ account. Are you sure?", savingsAdded, goalName, self.selected_source];
     // confirm the amounts
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@"Confirmation"
                           message: alertMessage
                           delegate: self
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:@"Cancel", nil];
+                          cancelButtonTitle:@"Yes"
+                          otherButtonTitles:@"No", nil];
     [alert show];
 }
 
@@ -161,7 +163,9 @@ static UIColor *overlayColor;
   }
   
   UIView *overlay = [[UIView alloc] initWithFrame:button.bounds];
-  overlay.backgroundColor = overlayColor;
+  //overlay.backgroundColor = overlayColor;
+    overlay.layer.borderWidth = 4;
+    overlay.layer.borderColor = [UIColor orangeColor].CGColor;
   overlay.tag = 201;
   
   [button addSubview:overlay];
@@ -169,14 +173,17 @@ static UIColor *overlayColor;
 
 - (IBAction)paypalTouchUpInside:(id)sender {
   [self toggleFundingSource:sender];
+    self.selected_source = @"PayPal";
 }
 
 - (IBAction)venmoTouchUpInside:(id)sender {
   [self toggleFundingSource:sender];
+    self.selected_source = @"Venmo";
 }
 
 - (IBAction)myCheckingTouchUpInside:(id)sender {
   [self toggleFundingSource:sender];
+    self.selected_source = @"checking";
 }
 
 
@@ -184,10 +191,11 @@ static UIColor *overlayColor;
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SavingsGoalCell" forIndexPath:indexPath];
   
   Goal *goal = [SharedAppDelegate.goals objectAtIndex:indexPath.row];
-
+    //NSInteger amount_saved_towards_goal = [DataController amount_cents_so_far_in_goal:indexPath.row];
+    //NSInteger amount_needed = goal.goal_amount_cents - amount_saved_towards_goal;
   
   UILabel* goalLabel = (UILabel*)[cell viewWithTag:200];
-  [goalLabel setText:goal.name];
+  [goalLabel setText:[NSString stringWithFormat:@"%@", goal.name]];
   
   return cell;
 
