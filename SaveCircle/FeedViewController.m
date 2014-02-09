@@ -15,6 +15,7 @@
 @property(nonatomic) NSMutableArray *events;
 @property(nonatomic) NSInteger my_total;
 @property(nonatomic) NSInteger team_total;
+@property(nonatomic) NSInteger last_event_count;
 
 @end
 
@@ -95,7 +96,13 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [self updateTotals];
-    [self.feedtable reloadData];
+    if (self.last_event_count == 0) {
+        [self.feedtable reloadData];
+    } else if (self.last_event_count != self.events.count) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.feedtable insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    };
+    self.last_event_count = self.events.count;
 }
 
 - (void)didReceiveMemoryWarning
