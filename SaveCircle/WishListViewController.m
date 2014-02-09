@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "Goal.h"
 #import "Event.h"
+#import "DataController.h"
 
 @interface WishListViewController ()
 
@@ -56,12 +57,7 @@
     Goal* g = [SharedAppDelegate.goals objectAtIndex:indexPath.row];
     
     //calculate amount saved
-    g.amount_cents_so_far = 0;
-    for (Event* e in SharedAppDelegate.events) {
-        if ([e.user_name isEqualToString:@"Steve"] && [e.event_name isEqualToString:@"saved"] && (e.goal_id == indexPath.row)) {
-            g.amount_cents_so_far += e.amount_cents;
-        }
-    }
+    g.amount_cents_so_far = [DataController amount_cents_so_far_in_goal:indexPath.row];
     
     UILabel* goalLabel = (UILabel*)[cell viewWithTag:300];
     [goalLabel setText:g.name];

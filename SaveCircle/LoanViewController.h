@@ -14,5 +14,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *your_savings;
 @property (strong, nonatomic) IBOutlet UILabel *borrowable;
 @property (strong, nonatomic) IBOutlet UILabel *total_available;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UILabel *goalMessage;
 
 @end
