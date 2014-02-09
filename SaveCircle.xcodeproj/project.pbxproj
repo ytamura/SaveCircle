@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F17785918A6F84D00672F61 /* daniel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F17785818A6F84D00672F61 /* daniel.jpg */; };
+		1F17785B18A6FBDB00672F61 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F17785A18A6FBDB00672F61 /* heart.png */; };
 		1F20499C18A6CD71002CB808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F20499B18A6CD71002CB808 /* Foundation.framework */; };
 		1F20499E18A6CD71002CB808 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F20499D18A6CD71002CB808 /* CoreGraphics.framework */; };
 		1F2049A018A6CD71002CB808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F20499F18A6CD71002CB808 /* UIKit.framework */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F17785818A6F84D00672F61 /* daniel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daniel.jpg; sourceTree = "<group>"; };
+		1F17785A18A6FBDB00672F61 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		1F20499818A6CD71002CB808 /* SaveCircle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveCircle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F20499B18A6CD71002CB808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1F20499D18A6CD71002CB808 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -139,6 +143,8 @@
 		1F2049A218A6CD71002CB808 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F17785A18A6FBDB00672F61 /* heart.png */,
+				1F17785818A6F84D00672F61 /* daniel.jpg */,
 				1F2049A318A6CD71002CB808 /* SaveCircle-Info.plist */,
 				1F2049A418A6CD71002CB808 /* InfoPlist.strings */,
 				1F2049A718A6CD71002CB808 /* main.m */,
@@ -261,6 +267,8 @@
 			files = (
 				1F2049B718A6CD71002CB808 /* Images.xcassets in Resources */,
 				1F2049A618A6CD71002CB808 /* InfoPlist.strings in Resources */,
+				1F17785B18A6FBDB00672F61 /* heart.png in Resources */,
+				1F17785918A6F84D00672F61 /* daniel.jpg in Resources */,
 				1F2049AF18A6CD71002CB808 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +502,7 @@
 				1F2049CF18A6CD71002CB808 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F2049D018A6CD71002CB808 /* Build configuration list for PBXNativeTarget "SaveCircleTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +511,7 @@
 				1F2049D218A6CD71002CB808 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
