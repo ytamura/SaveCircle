@@ -33,6 +33,7 @@
 		1F77AE3518A71A040040C5F2 /* LoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F77AE3418A71A040040C5F2 /* LoanViewController.m */; };
 		1F77AE3718A72C350040C5F2 /* rainy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F77AE3618A72C350040C5F2 /* rainy@2x.png */; };
 		61326B3C18A7001E00E150ED /* paypal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61326B3B18A7001E00E150ED /* paypal.jpg */; };
+		61326B3F18A72C2200E150ED /* EncouragementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61326B3E18A72C2200E150ED /* EncouragementViewController.m */; };
 		61B27D2C18A6EA7700AFB883 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B27D2B18A6EA7700AFB883 /* User.m */; };
 		61B27D2E18A6F32A00AFB883 /* venmo-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 61B27D2D18A6F32A00AFB883 /* venmo-logo.gif */; };
 		61B27D3118A6F5CB00AFB883 /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B27D3018A6F5CB00AFB883 /* Goal.m */; };
@@ -84,6 +85,8 @@
 		1F77AE3418A71A040040C5F2 /* LoanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanViewController.m; sourceTree = "<group>"; };
 		1F77AE3618A72C350040C5F2 /* rainy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rainy@2x.png"; sourceTree = "<group>"; };
 		61326B3B18A7001E00E150ED /* paypal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = paypal.jpg; sourceTree = "<group>"; };
+		61326B3D18A72C2200E150ED /* EncouragementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncouragementViewController.h; sourceTree = "<group>"; };
+		61326B3E18A72C2200E150ED /* EncouragementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncouragementViewController.m; sourceTree = "<group>"; };
 		61B27D2A18A6EA7700AFB883 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		61B27D2B18A6EA7700AFB883 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		61B27D2D18A6F32A00AFB883 /* venmo-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "venmo-logo.gif"; sourceTree = "<group>"; };
@@ -221,6 +224,8 @@
 				1F2049D918A6E187002CB808 /* AddSavingViewController.m */,
 				1F77AE3318A71A040040C5F2 /* LoanViewController.h */,
 				1F77AE3418A71A040040C5F2 /* LoanViewController.m */,
+				61326B3D18A72C2200E150ED /* EncouragementViewController.h */,
+				61326B3E18A72C2200E150ED /* EncouragementViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61326B3F18A72C2200E150ED /* EncouragementViewController.m in Sources */,
 				1F2049B518A6CD71002CB808 /* WishListViewController.m in Sources */,
 				61B27D2C18A6EA7700AFB883 /* User.m in Sources */,
 				1F2049AC18A6CD71002CB808 /* AppDelegate.m in Sources */,
