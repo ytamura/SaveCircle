@@ -32,6 +32,13 @@ static UIColor *overlayColor;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+      self.venmoButton.layer.borderWidth = 2;
+      self.venmoButton.layer.borderColor = [UIColor blackColor].CGColor;
+      
+      self.paypalButton.layer.borderWidth = 2;
+      self.paypalButton.layer.borderColor = [UIColor blackColor].CGColor;
+      
+      [self.goalTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     }
 
     return self;
@@ -58,8 +65,6 @@ static UIColor *overlayColor;
                                  action:@selector(dismissKeyboard)];
   [tap setCancelsTouchesInView:NO];
   [self.view addGestureRecognizer:tap];
-  
-  
 }
 
 - (void)dismissKeyboard {
@@ -86,27 +91,31 @@ static UIColor *overlayColor;
   [self.parentViewController dismissViewControllerAnimated:YES completion:^{}];
 }
 
-- (IBAction)paypalTouchUpInside:(id)sender {
-  UIButton *paypal = (UIButton *)sender;
-  UIView *overlay = [[UIView alloc] initWithFrame:paypal.bounds];
+- (void)toggleFundingSource:(UIButton *)button {
+  UIView *existing = [self.view viewWithTag:201];
+  if (existing) {
+    [existing removeFromSuperview];
+  }
+  
+  UIView *overlay = [[UIView alloc] initWithFrame:button.bounds];
   overlay.backgroundColor = overlayColor;
   overlay.tag = 201;
-
-  [paypal addSubview:overlay];
   
-  CALayer *layer = paypal.layer;
-  layer.borderColor = overlayColor.CGColor;
-  layer.borderWidth = 4;
+  [button addSubview:overlay];
+}
+
+- (IBAction)paypalTouchUpInside:(id)sender {
+  [self toggleFundingSource:sender];
 }
 
 - (IBAction)venmoTouchUpInside:(id)sender {
-  NSLog(@"VENMO");
-  UIButton *venmoButton = (UIButton *)sender;
-  
-  CALayer *layer = venmoButton.layer;
-  layer.borderColor = [UIColor blackColor].CGColor;
-  layer.borderWidth = 4;
+  [self toggleFundingSource:sender];
 }
+
+- (IBAction)myCheckingTouchUpInside:(id)sender {
+  [self toggleFundingSource:sender];
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SavingsGoalCell" forIndexPath:indexPath];
@@ -129,8 +138,35 @@ static UIColor *overlayColor;
   return [self.goals count];
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
+
+- (UILabel *)findCheckmark:(UIView *)cell {
+  NSArray *subviews = cell.subviews;
+
+  for (int i = 0; i < subviews.count; i++) {
+    UIView *subview = (UIView *)cell.subviews[i];
+    if (subview.tag == 205) {
+      return (UILabel *)subview;
+    }
+    subview = [self findCheckmark:subview];
+    if (subview) {
+      return (UILabel *)subview;
+    }
+  }
+  
+  return nil;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  // MAJOR HACK
+  for (int i = 0; i < [self.goals count]; i++) {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+    UILabel *label = [self findCheckmark:cell];
+    NSLog(@"%@", @(i));
+    label.textColor = (i == indexPath.row) ? [UIColor blackColor] : [UIColor whiteColor];
+    NSLog(@"%@", label.textColor);
+  }
 }
 
 @end
