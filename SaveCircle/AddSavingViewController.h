@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddSavingViewController : UIViewController
+@interface AddSavingViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end
