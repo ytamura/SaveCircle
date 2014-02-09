@@ -53,7 +53,7 @@
     [savedAmountLabel setText:[NSString stringWithFormat:@"$%li saved", (long)savedAmount]];
     
     UILabel* savedPercentLabel = (UILabel*)[cell viewWithTag:304];
-    [savedPercentLabel setText:[NSString stringWithFormat:@"%li%%", (long)goalPercent*100]];
+    [savedPercentLabel setText:[NSString stringWithFormat:@"%li%%", (long)(goalPercent*100)]];
     return cell;
 }
 
