@@ -16,4 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *toEmail;
 @property (strong, nonatomic) IBOutlet UILabel *toAvatar;
 
+@property (strong, nonatomic) IBOutlet UIButton *send_button;
+@property (strong, nonatomic) IBOutlet UIButton *cancel_button;
 @end

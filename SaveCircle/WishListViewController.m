@@ -7,8 +7,10 @@
 //
 
 #import "WishListViewController.h"
+#import "AddSavingViewController.h"
 #import "AppDelegate.h"
 #import "Goal.h"
+#import "Event.h"
 
 @interface WishListViewController ()
 
@@ -20,12 +22,28 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self formatAddButton];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self.wishTable reloadData];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)formatAddButton {
+    [self.add_button.layer setCornerRadius:28];
+    
+    self.add_button.layer.masksToBounds = NO;
+    self.add_button.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.add_button.layer.shadowOpacity = 0.8;
+    self.add_button.layer.shadowRadius = 5;
+    self.add_button.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -36,6 +54,14 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoalCell" forIndexPath:indexPath];
     
     Goal* g = [SharedAppDelegate.goals objectAtIndex:indexPath.row];
+    
+    //calculate amount saved
+    g.amount_cents_so_far = 0;
+    for (Event* e in SharedAppDelegate.events) {
+        if ([e.user_name isEqualToString:@"Steve"] && [e.event_name isEqualToString:@"saved"] && (e.goal_id == indexPath.row)) {
+            g.amount_cents_so_far += e.amount_cents;
+        }
+    }
     
     UILabel* goalLabel = (UILabel*)[cell viewWithTag:300];
     [goalLabel setText:g.name];
@@ -59,6 +85,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+#pragma mark Segues
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"AddSavingFromGoals"]) {
+        UINavigationController* navForEntry = (UINavigationController*)[segue destinationViewController];
+        AddSavingViewController* addViewController = (AddSavingViewController*)[navForEntry topViewController];
+        [addViewController setEvents:SharedAppDelegate.events];
+    }
 }
 
 @end

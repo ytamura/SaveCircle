@@ -14,5 +14,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSMutableArray *goals;
+@property (strong, nonatomic) NSMutableArray *events;
 
 @end

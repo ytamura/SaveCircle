@@ -44,6 +44,22 @@
                                  action:@selector(dismissKeyboard)];
   [tap setCancelsTouchesInView:NO];
   [self.view addGestureRecognizer:tap];
+    
+    //format
+    [self.encourageTextView.layer setCornerRadius:12];
+    [self.send_button.layer setCornerRadius:5];
+    [self.cancel_button.layer setCornerRadius:5];
+    
+    //fill event
+    [self.toEmail setText:[NSString stringWithFormat:@"%@ %@ $%li",self.event.user_name, self.event.event_name, self.event.amount_cents/100]];
+    
+    //set avatar
+    if ([self.event.image_name length] > 0) {
+        [self.toAvatar setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:self.event.image_name]]];
+    } else {
+        [self.toAvatar setBackgroundColor:self.event.user_color];
+        [self.toAvatar setText:[[self.event.user_name capitalizedString] substringToIndex:1]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +69,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  self.encourageTextView.text = [NSString stringWithFormat:@"Enter your encouragement for %@", self.event.user_name];
+  self.encourageTextView.text = [NSString stringWithFormat:@"Hey %@, I saw that you %@ $%li. Keep up the great work!", self.event.user_name, self.event.event_name, self.event.amount_cents/100];
 }
 
 @end
