@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1F17785918A6F84D00672F61 /* daniel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F17785818A6F84D00672F61 /* daniel.jpg */; };
 		1F17785B18A6FBDB00672F61 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F17785A18A6FBDB00672F61 /* heart.png */; };
+		1F17785D18A7022C00672F61 /* heart-liked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F17785C18A7022C00672F61 /* heart-liked.png */; };
+		1F17786118A70D0800672F61 /* teamavatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F17786018A70D0800672F61 /* teamavatar.png */; };
 		1F20499C18A6CD71002CB808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F20499B18A6CD71002CB808 /* Foundation.framework */; };
 		1F20499E18A6CD71002CB808 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F20499D18A6CD71002CB808 /* CoreGraphics.framework */; };
 		1F2049A018A6CD71002CB808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F20499F18A6CD71002CB808 /* UIKit.framework */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		1F17785818A6F84D00672F61 /* daniel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daniel.jpg; sourceTree = "<group>"; };
 		1F17785A18A6FBDB00672F61 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		1F17785C18A7022C00672F61 /* heart-liked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-liked.png"; sourceTree = "<group>"; };
+		1F17786018A70D0800672F61 /* teamavatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teamavatar.png; sourceTree = "<group>"; };
 		1F20499818A6CD71002CB808 /* SaveCircle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveCircle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F20499B18A6CD71002CB808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1F20499D18A6CD71002CB808 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -154,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				61326B3B18A7001E00E150ED /* paypal.jpg */,
+				1F17786018A70D0800672F61 /* teamavatar.png */,
+				1F17785C18A7022C00672F61 /* heart-liked.png */,
 				1F17785A18A6FBDB00672F61 /* heart.png */,
 				1F17785818A6F84D00672F61 /* daniel.jpg */,
 				61B27D2D18A6F32A00AFB883 /* venmo-logo.gif */,
@@ -284,10 +290,12 @@
 				1F2049B718A6CD71002CB808 /* Images.xcassets in Resources */,
 				61B27D2E18A6F32A00AFB883 /* venmo-logo.gif in Resources */,
 				1F2049A618A6CD71002CB808 /* InfoPlist.strings in Resources */,
+				1F17785D18A7022C00672F61 /* heart-liked.png in Resources */,
 				1F17785B18A6FBDB00672F61 /* heart.png in Resources */,
 				1F17785918A6F84D00672F61 /* daniel.jpg in Resources */,
 				1F2049AF18A6CD71002CB808 /* Main.storyboard in Resources */,
 				61326B3C18A7001E00E150ED /* paypal.jpg in Resources */,
+				1F17786118A70D0800672F61 /* teamavatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
