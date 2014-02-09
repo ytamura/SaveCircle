@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface LoanViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIButton *withdraw_button;
+@property (strong, nonatomic) IBOutlet UIButton *request_button;
+@property (strong, nonatomic) IBOutlet UILabel *your_savings;
+@property (strong, nonatomic) IBOutlet UILabel *borrowable;
+@property (strong, nonatomic) IBOutlet UILabel *total_available;
 
 @end
