@@ -55,6 +55,9 @@ static UIColor *overlayColor;
                                  action:@selector(dismissKeyboard)];
   [tap setCancelsTouchesInView:NO];
   [self.view addGestureRecognizer:tap];
+    
+    //format button
+    [self.saveButton.layer setCornerRadius:5];
 }
 
 - (void)dismissKeyboard {

@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *venmoButton;
 @property (weak, nonatomic) IBOutlet UIButton *paypalButton;
 @property (weak, nonatomic) IBOutlet UIButton *myAccount;
+@property (strong, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UITextField *savings_amount;
 @property (weak, nonatomic) IBOutlet UITableView *goalTableView;
 
