@@ -7,6 +7,7 @@
 //
 
 #import "FeedViewController.h"
+#import "AddSavingViewController.h"
 #import "Event.h"
 
 @interface FeedViewController ()
@@ -25,11 +26,6 @@
     
     //format button
     [self formatAddButton];
-    
-    //fake data
-    self.my_total = 560;
-    self.team_total = 4500;
-    [self updateTotals];
     
     self.events = [NSMutableArray new];
     
@@ -97,6 +93,11 @@
     [self.events addObject:event6];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self updateTotals];
+    [self.feedtable reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -114,8 +115,19 @@
 }
 
 - (void)updateTotals {
-    [self.my_total_button setTitle:[NSString stringWithFormat:@"$%li",(long)self.my_total] forState:UIControlStateNormal];
-    [self.team_total_button setTitle:[NSString stringWithFormat:@"$%li",(long)self.team_total] forState:UIControlStateNormal];
+    NSInteger myTotal = 0;
+    NSInteger groupTotal = 0;
+    for (Event* event in self.events) {
+        if ([event.event_name isEqualToString:@"saved"]) {
+            if ([event.user_name isEqualToString:@"Steve"]) {
+                myTotal += event.amount_cents/100;
+            }
+            groupTotal += event.amount_cents/100;
+        }
+    }
+    
+    [self.my_total_button setTitle:[NSString stringWithFormat:@"$%li",(long)myTotal] forState:UIControlStateNormal];
+    [self.team_total_button setTitle:[NSString stringWithFormat:@"$%li",(long)groupTotal] forState:UIControlStateNormal];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -165,4 +177,17 @@
     UIButton* heart_button = (UIButton*)sender;
     [heart_button setBackgroundImage:[UIImage imageNamed:@"heart-liked.png"] forState:UIControlStateNormal];
 }
+
+#pragma Segues
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"AddSaving"]) {
+        UINavigationController* navForEntry = (UINavigationController*)[segue destinationViewController];
+        AddSavingViewController* addViewController = (AddSavingViewController*)[navForEntry topViewController];
+        [addViewController setEvents:self.events];
+    }
+}
+
+
+
 @end
