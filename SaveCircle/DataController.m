@@ -15,7 +15,7 @@
     NSInteger myTotal = 0;
     for (Event* event in SharedAppDelegate.events) {
         if ([event.event_name isEqualToString:@"saved"]) {
-            if ([event.user_name isEqualToString:@"Steve"]) {
+            if ([event.user_name isEqualToString:@"Selena"]) {
                 myTotal += event.amount_cents/100;
             }
         }
@@ -36,7 +36,7 @@
 +(float)myTotal {
     float myTotal = 0;
     for (Event* event in SharedAppDelegate.events) {
-        if ([event.event_name isEqualToString:@"saved"] && [event.user_name isEqualToString:@"Steve"]) {
+        if ([event.event_name isEqualToString:@"saved"] && [event.user_name isEqualToString:@"Selena"]) {
             myTotal += event.amount_cents/100;
         }
     }
@@ -47,7 +47,7 @@
 +(NSInteger)amount_cents_so_far_in_goal:(NSInteger)goal_id {
     NSInteger amount_cents_so_far = 0;
     for (Event* e in SharedAppDelegate.events) {
-        if ([e.user_name isEqualToString:@"Steve"] && [e.event_name isEqualToString:@"saved"] && (e.goal_id == goal_id)) {
+        if ([e.user_name isEqualToString:@"Selena"] && [e.event_name isEqualToString:@"saved"] && (e.goal_id == goal_id)) {
             amount_cents_so_far += e.amount_cents;
         }
     }

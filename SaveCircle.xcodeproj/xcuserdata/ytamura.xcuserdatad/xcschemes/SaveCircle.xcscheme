@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1F20499718A6CD71002CB808"
-               BuildableName = "SaveCircle.app"
+               BuildableName = "Circle Saver.app"
                BlueprintName = "SaveCircle"
                ReferencedContainer = "container:SaveCircle.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F20499718A6CD71002CB808"
-            BuildableName = "SaveCircle.app"
+            BuildableName = "Circle Saver.app"
             BlueprintName = "SaveCircle"
             ReferencedContainer = "container:SaveCircle.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F20499718A6CD71002CB808"
-            BuildableName = "SaveCircle.app"
+            BuildableName = "Circle Saver.app"
             BlueprintName = "SaveCircle"
             ReferencedContainer = "container:SaveCircle.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F20499718A6CD71002CB808"
-            BuildableName = "SaveCircle.app"
+            BuildableName = "Circle Saver.app"
             BlueprintName = "SaveCircle"
             ReferencedContainer = "container:SaveCircle.xcodeproj">
          </BuildableReference>

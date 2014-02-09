@@ -7,6 +7,8 @@
 //
 
 #import "EncouragementViewController.h"
+#import "AppDelegate.h"
+#import "Event.h"
 
 @interface EncouragementViewController ()
 
@@ -15,11 +17,19 @@
 @implementation EncouragementViewController
 
 - (IBAction)sendAction:(id)sender {
-  [self dismissViewControllerAnimated:YES completion:^{}];
+    Event* newEvent = [Event new];
+    newEvent.user_name = @"Selena";
+    newEvent.amount_cents = 0;
+    newEvent.how_long_ago = @"just now";
+    newEvent.user_color = [UIColor purpleColor];
+    newEvent.event_name = [NSString stringWithFormat:@"encouraged %@",self.event.user_name];
+    
+    [SharedAppDelegate.events insertObject:newEvent atIndex:0];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 - (IBAction)dismissAction:(id)sender {
-  [self dismissViewControllerAnimated:YES completion:^{}];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 
@@ -32,18 +42,18 @@
 }
 
 - (void) dismissKeyboard {
-  [self.view endEditing:YES];
+    [self.view endEditing:YES];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  // dismiss keyboard
-  UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+    // dismiss keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                  initWithTarget:self
                                  action:@selector(dismissKeyboard)];
-  [tap setCancelsTouchesInView:NO];
-  [self.view addGestureRecognizer:tap];
+    [tap setCancelsTouchesInView:NO];
+    [self.view addGestureRecognizer:tap];
     
     //format
     [self.encourageTextView.layer setCornerRadius:12];
@@ -69,7 +79,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  self.encourageTextView.text = [NSString stringWithFormat:@"Hey %@, I saw that you %@ $%li. Keep up the great work!", self.event.user_name, self.event.event_name, self.event.amount_cents/100];
+    self.encourageTextView.text = [NSString stringWithFormat:@"Hey %@, I saw that you %@ $%li. Keep up the great work!", self.event.user_name, self.event.event_name, self.event.amount_cents/100];
 }
 
 @end
