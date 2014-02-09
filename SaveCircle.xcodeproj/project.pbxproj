@@ -19,7 +19,7 @@
 		1F2049AC18A6CD71002CB808 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2049AB18A6CD71002CB808 /* AppDelegate.m */; };
 		1F2049AF18A6CD71002CB808 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2049AD18A6CD71002CB808 /* Main.storyboard */; };
 		1F2049B218A6CD71002CB808 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2049B118A6CD71002CB808 /* FeedViewController.m */; };
-		1F2049B518A6CD71002CB808 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2049B418A6CD71002CB808 /* SecondViewController.m */; };
+		1F2049B518A6CD71002CB808 /* WishListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2049B418A6CD71002CB808 /* WishListViewController.m */; };
 		1F2049B718A6CD71002CB808 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F2049B618A6CD71002CB808 /* Images.xcassets */; };
 		1F2049BE18A6CD71002CB808 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2049BD18A6CD71002CB808 /* XCTest.framework */; };
 		1F2049BF18A6CD71002CB808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F20499B18A6CD71002CB808 /* Foundation.framework */; };
@@ -28,6 +28,9 @@
 		1F2049CA18A6CD71002CB808 /* SaveCircleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2049C918A6CD71002CB808 /* SaveCircleTests.m */; };
 		1F2049D618A6D7BC002CB808 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2049D518A6D7BC002CB808 /* Event.m */; };
 		1F2049DA18A6E187002CB808 /* AddSavingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2049D918A6E187002CB808 /* AddSavingViewController.m */; };
+		1F77AE3018A716E10040C5F2 /* wishlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F77AE2E18A716E10040C5F2 /* wishlist@2x.png */; };
+		1F77AE3218A7177C0040C5F2 /* feed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F77AE3118A7177C0040C5F2 /* feed@2x.png */; };
+		1F77AE3518A71A040040C5F2 /* LoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F77AE3418A71A040040C5F2 /* LoanViewController.m */; };
 		61326B3C18A7001E00E150ED /* paypal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61326B3B18A7001E00E150ED /* paypal.jpg */; };
 		61B27D2C18A6EA7700AFB883 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B27D2B18A6EA7700AFB883 /* User.m */; };
 		61B27D2E18A6F32A00AFB883 /* venmo-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 61B27D2D18A6F32A00AFB883 /* venmo-logo.gif */; };
@@ -62,8 +65,8 @@
 		1F2049AE18A6CD71002CB808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F2049B018A6CD71002CB808 /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		1F2049B118A6CD71002CB808 /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
-		1F2049B318A6CD71002CB808 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		1F2049B418A6CD71002CB808 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		1F2049B318A6CD71002CB808 /* WishListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WishListViewController.h; sourceTree = "<group>"; };
+		1F2049B418A6CD71002CB808 /* WishListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WishListViewController.m; sourceTree = "<group>"; };
 		1F2049B618A6CD71002CB808 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1F2049BC18A6CD71002CB808 /* SaveCircleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaveCircleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2049BD18A6CD71002CB808 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -74,6 +77,10 @@
 		1F2049D518A6D7BC002CB808 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		1F2049D818A6E187002CB808 /* AddSavingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSavingViewController.h; sourceTree = "<group>"; };
 		1F2049D918A6E187002CB808 /* AddSavingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSavingViewController.m; sourceTree = "<group>"; };
+		1F77AE2E18A716E10040C5F2 /* wishlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wishlist@2x.png"; sourceTree = "<group>"; };
+		1F77AE3118A7177C0040C5F2 /* feed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feed@2x.png"; sourceTree = "<group>"; };
+		1F77AE3318A71A040040C5F2 /* LoanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanViewController.h; sourceTree = "<group>"; };
+		1F77AE3418A71A040040C5F2 /* LoanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanViewController.m; sourceTree = "<group>"; };
 		61326B3B18A7001E00E150ED /* paypal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = paypal.jpg; sourceTree = "<group>"; };
 		61B27D2A18A6EA7700AFB883 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		61B27D2B18A6EA7700AFB883 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -144,10 +151,6 @@
 				1F2049AA18A6CD71002CB808 /* AppDelegate.h */,
 				1F2049AB18A6CD71002CB808 /* AppDelegate.m */,
 				1F2049AD18A6CD71002CB808 /* Main.storyboard */,
-				1F2049B018A6CD71002CB808 /* FeedViewController.h */,
-				1F2049B118A6CD71002CB808 /* FeedViewController.m */,
-				1F2049B318A6CD71002CB808 /* SecondViewController.h */,
-				1F2049B418A6CD71002CB808 /* SecondViewController.m */,
 				1F2049B618A6CD71002CB808 /* Images.xcassets */,
 				1F2049A218A6CD71002CB808 /* Supporting Files */,
 			);
@@ -157,6 +160,8 @@
 		1F2049A218A6CD71002CB808 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F77AE3118A7177C0040C5F2 /* feed@2x.png */,
+				1F77AE2E18A716E10040C5F2 /* wishlist@2x.png */,
 				61326B3B18A7001E00E150ED /* paypal.jpg */,
 				1F17786018A70D0800672F61 /* teamavatar.png */,
 				1F17785C18A7022C00672F61 /* heart-liked.png */,
@@ -205,8 +210,14 @@
 		1F2049D718A6E163002CB808 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1F2049B018A6CD71002CB808 /* FeedViewController.h */,
+				1F2049B118A6CD71002CB808 /* FeedViewController.m */,
+				1F2049B318A6CD71002CB808 /* WishListViewController.h */,
+				1F2049B418A6CD71002CB808 /* WishListViewController.m */,
 				1F2049D818A6E187002CB808 /* AddSavingViewController.h */,
 				1F2049D918A6E187002CB808 /* AddSavingViewController.m */,
+				1F77AE3318A71A040040C5F2 /* LoanViewController.h */,
+				1F77AE3418A71A040040C5F2 /* LoanViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -287,7 +298,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F77AE3218A7177C0040C5F2 /* feed@2x.png in Resources */,
 				1F2049B718A6CD71002CB808 /* Images.xcassets in Resources */,
+				1F77AE3018A716E10040C5F2 /* wishlist@2x.png in Resources */,
 				61B27D2E18A6F32A00AFB883 /* venmo-logo.gif in Resources */,
 				1F2049A618A6CD71002CB808 /* InfoPlist.strings in Resources */,
 				1F17785D18A7022C00672F61 /* heart-liked.png in Resources */,
@@ -314,7 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F2049B518A6CD71002CB808 /* SecondViewController.m in Sources */,
+				1F2049B518A6CD71002CB808 /* WishListViewController.m in Sources */,
 				61B27D2C18A6EA7700AFB883 /* User.m in Sources */,
 				1F2049AC18A6CD71002CB808 /* AppDelegate.m in Sources */,
 				1F2049D618A6D7BC002CB808 /* Event.m in Sources */,
@@ -322,6 +335,7 @@
 				1F2049B218A6CD71002CB808 /* FeedViewController.m in Sources */,
 				1F2049DA18A6E187002CB808 /* AddSavingViewController.m in Sources */,
 				1F2049A818A6CD71002CB808 /* main.m in Sources */,
+				1F77AE3518A71A040040C5F2 /* LoanViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 FinCapDev Hackathon. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "WishListViewController.h"
 
-@interface SecondViewController ()
+@interface WishListViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation WishListViewController
 
 - (void)viewDidLoad
 {
