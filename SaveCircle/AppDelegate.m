@@ -7,12 +7,32 @@
 //
 
 #import "AppDelegate.h"
+#import "Goal.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.goals = NSMutableArray.new;
+    Goal *goal1 = [Goal new];
+    goal1.goal_amount_cents = 50000;
+    goal1.amount_cents_so_far = 10000;
+    goal1.name = @"Emergency Fund";
+    
+    Goal *goal2 = [Goal new];
+    goal2.goal_amount_cents = 70000;
+    goal2.amount_cents_so_far = 5000;
+    goal2.name = @"Annie's College Fund";
+    
+    Goal *goal3 = [Goal new];
+    goal3.goal_amount_cents = 10000;
+    goal3.amount_cents_so_far = 3000;
+    goal3.name = @"Mortgage Payment";
+    
+    
+    [self.goals addObjectsFromArray:@[goal1, goal2, goal3]];
+
     return YES;
 }
 							

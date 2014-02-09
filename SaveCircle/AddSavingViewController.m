@@ -7,12 +7,12 @@
 //
 
 #import "AddSavingViewController.h"
+#import "AppDelegate.h"
 #import "Goal.h"
 #import "Event.h"
 
 @interface AddSavingViewController ()
 
-@property(nonatomic) NSArray *goals;
 @property(nonatomic) UIView *overlay;
 
 @end
@@ -48,17 +48,6 @@ static UIColor *overlayColor;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  Goal *goal1 = [Goal new];
-  goal1.goal_amount_cents = 50000;
-  goal1.amount_cents_so_far = 10000;
-  goal1.name = @"Mortgage";
-  
-  Goal *goal2 = [Goal new];
-  goal2.goal_amount_cents = 70000;
-  goal2.amount_cents_so_far = 5000;
-  goal2.name = @"Bling Bling";
-  
-  self.goals = @[goal1, goal2];
   
   // dismiss keyboard
   UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -80,14 +69,11 @@ static UIColor *overlayColor;
 }
 
 - (IBAction)submit:(id)sender {
-  NSLog(@"%@", self.savings_amount);
   // TODO(iw): validate
   
   NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
   [f setNumberStyle:NSNumberFormatterDecimalStyle];
   NSNumber *savingsAdded = [f numberFromString:self.savings_amount.text];
-  
-  NSLog(@"Savings added: %@", savingsAdded);
     
     Event* newEvent = [Event new];
     newEvent.user_name = @"Steve";
@@ -130,7 +116,7 @@ static UIColor *overlayColor;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SavingsGoalCell" forIndexPath:indexPath];
   
-  Goal *goal = [self.goals objectAtIndex:indexPath.row];
+  Goal *goal = [SharedAppDelegate.goals objectAtIndex:indexPath.row];
 
   
   UILabel* goalLabel = (UILabel*)[cell viewWithTag:200];
@@ -145,7 +131,7 @@ static UIColor *overlayColor;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return [self.goals count];
+  return [SharedAppDelegate.goals count];
 }
 
 
@@ -170,12 +156,10 @@ static UIColor *overlayColor;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   // MAJOR HACK
-  for (int i = 0; i < [self.goals count]; i++) {
+  for (int i = 0; i < [SharedAppDelegate.goals count]; i++) {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
     UILabel *label = [self findCheckmark:cell];
-    NSLog(@"%@", @(i));
     label.textColor = (i == indexPath.row) ? [UIColor blackColor] : [UIColor whiteColor];
-    NSLog(@"%@", label.textColor);
   }
 }
 
