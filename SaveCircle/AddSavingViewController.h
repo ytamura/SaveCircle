@@ -10,6 +10,9 @@
 
 @interface AddSavingViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *venmoButton;
+@property (weak, nonatomic) IBOutlet UIButton *paypalButton;
+@property (weak, nonatomic) IBOutlet UIButton *myAccount;
 @property (weak, nonatomic) IBOutlet UITextField *savings_amount;
+@property (weak, nonatomic) IBOutlet UITableView *goalTableView;
 
 @end
