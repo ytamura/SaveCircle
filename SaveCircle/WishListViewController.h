@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WishListViewController : UIViewController
+@interface WishListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *wishTable;
 
 @end
