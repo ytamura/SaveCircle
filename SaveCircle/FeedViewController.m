@@ -12,6 +12,8 @@
 @interface FeedViewController ()
 
 @property(nonatomic) NSMutableArray *events;
+@property(nonatomic) NSInteger my_total;
+@property(nonatomic) NSInteger team_total;
 
 @end
 
@@ -20,6 +22,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //format button
+    [self formatAddButton];
+    
+    //fake data
+    self.my_total = 560;
+    self.team_total = 4500;
+    [self updateTotals];
+    
     self.events = [NSMutableArray new];
     
     Event *event = [Event new];
@@ -27,6 +38,7 @@
     event.event_name = @"saved";
     event.created_at = [NSDate date];
     event.user_name = @"Maria";
+    event.how_long_ago = @"1 day ago";
     event.user_color = [UIColor orangeColor];
 
     [self.events addObject:event];
@@ -36,6 +48,7 @@
     event2.event_name = @"saved";
     event2.created_at = [NSDate date];
     event2.user_name = @"Daniel";
+    event2.how_long_ago = @"3 days ago";
     event2.user_color = [UIColor greenColor];
     event2.image_name = @"daniel.jpg";
     
@@ -46,6 +59,7 @@
     event3.event_name = @"saved";
     event3.created_at = [NSDate date];
     event3.user_name = @"Steve";
+    event3.how_long_ago = @"4 days ago";
     event3.user_color = [UIColor purpleColor];
     
     [self.events addObject:event3];
@@ -55,7 +69,9 @@
     event4.event_name = @"set a goal of";
     event4.created_at = [NSDate date];
     event4.user_name = @"Maria";
+    event4.how_long_ago = @"2 weeks ago";
     event4.user_color = [UIColor orangeColor];
+    event4.liked = YES;
     
     [self.events addObject:event4];
     
@@ -64,9 +80,21 @@
     event5.event_name = @"saved";
     event5.created_at = [NSDate date];
     event5.user_name = @"Maria";
+    event5.how_long_ago = @"2 weeks ago";
     event5.user_color = [UIColor orangeColor];
     
     [self.events addObject:event5];
+    
+    Event *event6 = [Event new];
+    event6.amount_cents = 2300;
+    event6.event_name = @"saved";
+    event6.created_at = [NSDate date];
+    event6.user_name = @"Daniel";
+    event6.how_long_ago = @"4 weeks ago";
+    event6.user_color = [UIColor greenColor];
+    event6.image_name = @"daniel.jpg";
+    
+    [self.events addObject:event6];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,17 +103,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)formatAddButton {
+    [self.add_button.layer setCornerRadius:28];
+
+    self.add_button.layer.masksToBounds = NO;
+    self.add_button.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.add_button.layer.shadowOpacity = 0.8;
+    self.add_button.layer.shadowRadius = 5;
+    self.add_button.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
+}
+
+- (void)updateTotals {
+    [self.my_total_button setTitle:[NSString stringWithFormat:@"$%i",self.my_total] forState:UIControlStateNormal];
+    [self.team_total_button setTitle:[NSString stringWithFormat:@"$%i",self.team_total] forState:UIControlStateNormal];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.events count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSDateFormatter *formatter = nil;
-    if (formatter == nil) {
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:NSDateFormatterShortStyle];
-        [formatter setTimeStyle:NSDateFormatterLongStyle];
-    }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell" forIndexPath:indexPath];
     
     Event* e = [self.events objectAtIndex:indexPath.row];
@@ -108,6 +145,14 @@
     }
     [avatar.layer setCornerRadius:3];
     
+    if (e.liked) {
+        UIButton* like_button = (UIButton*)[cell viewWithTag:102];
+        [like_button setBackgroundImage:[UIImage imageNamed:@"heart-liked.png"] forState:UIControlStateNormal];
+    }
+    
+    UILabel* agoLabel = (UILabel*)[cell viewWithTag:103];
+    [agoLabel setText:e.how_long_ago];
+    
     return cell;
 }
 
@@ -115,4 +160,8 @@
     return 1;
 }
 
+- (IBAction)tap_like:(id)sender {
+    UIButton* heart_button = (UIButton*)sender;
+    [heart_button setBackgroundImage:[UIImage imageNamed:@"heart-liked.png"] forState:UIControlStateNormal];
+}
 @end
