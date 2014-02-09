@@ -43,6 +43,16 @@
     [self.borrowable setText:[NSString stringWithFormat:@"%.02f",availableToBorrow]];
     [self.total_available setText:[NSString stringWithFormat:@"%.02f",(myTotal+availableToBorrow)]];
     
+    // dismiss keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [tap setCancelsTouchesInView:NO];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void)dismissKeyboard {
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning
