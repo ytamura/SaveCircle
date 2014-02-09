@@ -59,7 +59,7 @@
 		1F17785A18A6FBDB00672F61 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		1F17785C18A7022C00672F61 /* heart-liked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-liked.png"; sourceTree = "<group>"; };
 		1F17786018A70D0800672F61 /* teamavatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teamavatar.png; sourceTree = "<group>"; };
-		1F20499818A6CD71002CB808 /* SaveCircle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveCircle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F20499818A6CD71002CB808 /* Circle Saver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Circle Saver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F20499B18A6CD71002CB808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1F20499D18A6CD71002CB808 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1F20499F18A6CD71002CB808 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -143,7 +143,7 @@
 		1F20499918A6CD71002CB808 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1F20499818A6CD71002CB808 /* SaveCircle.app */,
+				1F20499818A6CD71002CB808 /* Circle Saver.app */,
 				1F2049BC18A6CD71002CB808 /* SaveCircleTests.xctest */,
 			);
 			name = Products;
@@ -266,7 +266,7 @@
 			);
 			name = SaveCircle;
 			productName = SaveCircle;
-			productReference = 1F20499818A6CD71002CB808 /* SaveCircle.app */;
+			productReference = 1F20499818A6CD71002CB808 /* Circle Saver.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1F2049BB18A6CD71002CB808 /* SaveCircleTests */ = {
@@ -499,7 +499,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SaveCircle/SaveCircle-Prefix.pch";
 				INFOPLIST_FILE = "SaveCircle/SaveCircle-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Circle Saver";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -512,7 +512,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SaveCircle/SaveCircle-Prefix.pch";
 				INFOPLIST_FILE = "SaveCircle/SaveCircle-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Circle Saver";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
