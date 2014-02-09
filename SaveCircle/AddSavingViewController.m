@@ -108,7 +108,7 @@ static UIColor *overlayColor;
             NSNumber *savingsAdded = [f numberFromString:self.savings_amount.text];
 
             Event* newEvent = [Event new];
-            newEvent.user_name = @"Steve";
+            newEvent.user_name = @"Selena";
             newEvent.amount_cents = savingsAdded.integerValue * 100;
             newEvent.how_long_ago = @"just now";
             newEvent.user_color = [UIColor purpleColor];

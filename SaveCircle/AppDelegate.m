@@ -61,7 +61,7 @@
     event3.amount_cents = 10000;
     event3.event_name = @"saved";
     event3.created_at = [NSDate date];
-    event3.user_name = @"Steve";
+    event3.user_name = @"Selena";
     event3.how_long_ago = @"4 days ago";
     event3.user_color = [UIColor purpleColor];
     event3.goal_id = 0;
@@ -90,7 +90,7 @@
     [self.events addObject:event5];
     
     Event *event6 = [Event new];
-    event6.amount_cents = 2300;
+    event6.amount_cents = 12300;
     event6.event_name = @"saved";
     event6.created_at = [NSDate date];
     event6.user_name = @"Daniel";
@@ -104,7 +104,7 @@
     event7.amount_cents = 5000;
     event7.event_name = @"saved";
     event7.created_at = [NSDate date];
-    event7.user_name = @"Steve";
+    event7.user_name = @"Selena";
     event7.how_long_ago = @"4 weeks ago";
     event7.user_color = [UIColor purpleColor];
     event7.goal_id = 1;
@@ -115,12 +115,23 @@
     event8.amount_cents = 6000;
     event8.event_name = @"saved";
     event8.created_at = [NSDate date];
-    event8.user_name = @"Steve";
+    event8.user_name = @"Selena";
     event8.how_long_ago = @"4 weeks ago";
     event8.user_color = [UIColor purpleColor];
     event8.goal_id = 2;
     
     [self.events addObject:event8];
+    
+    Event *event9 = [Event new];
+    event9.amount_cents = 15000;
+    event9.event_name = @"saved";
+    event9.created_at = [NSDate date];
+    event9.user_name = @"Daniel";
+    event9.how_long_ago = @"2 months ago";
+    event9.user_color = [UIColor greenColor];
+    event9.image_name = @"daniel.jpg";
+    
+    [self.events addObject:event9];
 
     return YES;
 }

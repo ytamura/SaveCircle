@@ -80,10 +80,15 @@
     UILabel* feedLabel = (UILabel*)[cell viewWithTag:100];
     float dollars = (float)e.amount_cents / 100;
     NSString* user = e.user_name;
-    if ([e.user_name isEqualToString:@"Steve"]) {
+    if ([e.user_name isEqualToString:@"Selena"]) {
         user = @"You";
     }
-    NSString* labelText = [NSString stringWithFormat:@"%@ %@ $%.02f", user, e.event_name, dollars];
+    
+    NSString* labelText = [NSString stringWithFormat:@"%@ %@", user, e.event_name];
+    if (dollars > 0) {
+        //only show dollar amount if there were dollars involved
+        labelText = [NSString stringWithFormat:@"%@ $%.02f", labelText, dollars];
+    }
     [feedLabel setText:labelText];
     
     UILabel* avatar = (UILabel*)[cell viewWithTag:101];
@@ -128,12 +133,13 @@
         [addViewController setEvents:SharedAppDelegate.events];
     }
   
-  if ([[segue identifier] isEqualToString:@"SendEncouragement"]) {
-    NSIndexPath *selectedIndexPath = [self.feedtable indexPathForSelectedRow];
-    Event *event = SharedAppDelegate.events[selectedIndexPath.row];
-    EncouragementViewController* encouragementViewController = (EncouragementViewController *)[segue destinationViewController];
-    [encouragementViewController setEvent:event];
-  }
+    else if ([[segue identifier] isEqualToString:@"SendEncouragement"]) {
+        NSIndexPath *selectedIndexPath = [self.feedtable indexPathForSelectedRow];
+        Event *event = SharedAppDelegate.events[selectedIndexPath.row];
+        EncouragementViewController* encouragementViewController = (EncouragementViewController *)[segue destinationViewController];
+        [encouragementViewController setEvent:event];
+        [self.feedtable deselectRowAtIndexPath:selectedIndexPath animated:NO];
+    }
 }
 
 
